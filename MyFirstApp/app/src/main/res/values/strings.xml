@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">My First App</string>
+    <string name="first_name">Digite un nombre...</string>
+    <string name="last_name">Digite un apellido..</string>
+    <string name="genre">Genero: </string>
+    <string name="male">Masculino </string>
+    <string name="female">Femenino </string>
+    <string name="birth">Nacimiento: </string>
+    <string name="programming">Le gusta programar? </string>
+    <string name="language">Lenguaje: </string>
+    <string name="java">Java </string>
+    <string name="python">Python </string>
+    <string name="js">JS </string>
+    <string name="go">Go Land </string>
+    <string name="c_c_plus">C/C++ </string>
+    <string name="c_sharp">C# </string>
+    <string name="send">Enviar </string>
+    <string name="clear">Limpiar </string>
+    <string name="yes">Si </string>
+    <string name="no">No </string>
+</resources>
