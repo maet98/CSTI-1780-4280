@@ -3,8 +3,10 @@
     <string name="first_name">Digite un nombre...</string>
     <string name="last_name">Digite un apellido..</string>
     <string name="genre">Genero: </string>
-    <string name="male">Masculino </string>
-    <string name="female">Femenino </string>
+    <string-array name="genres">
+        <item name="male">Masculino </item>
+        <item name="female">Femenino </item>
+    </string-array>
     <string name="birth">Nacimiento: </string>
     <string name="programming">Le gusta programar? </string>
     <string name="language">Lenguaje: </string>
