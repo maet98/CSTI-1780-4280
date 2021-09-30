@@ -1,15 +1,16 @@
 <resources>
     <string name="app_name">Activities, Intent and Permissions</string>
+    <string name="title">Choose what to allow APP to access</string>
     <string name="storage">Storage</string>
-    <string name="storage_desc">access photo, media and files on your device</string>
+    <string name="storage_desc">Access photo, media and files on your device</string>
     <string name="location">Location</string>
-    <string name="location_desc">access this devices location</string>
+    <string name="location_desc">Access this devices location</string>
     <string name="camera">Camera</string>
-    <string name="camera_desc">take pictures and record video</string>
+    <string name="camera_desc">Take pictures and record video</string>
     <string name="phone">Phone</string>
-    <string name="phone_desc">make and manage phone calls</string>
+    <string name="phone_desc">Make and manage phone calls</string>
     <string name="contacts">Contacts</string>
-    <string name="contacts_desc">access your contacts</string>
-    <string name="cancel">cancel</string>
+    <string name="contacts_desc">Access your contacts</string>
+    <string name="cancel">Cancel</string>
     <string name="cont">continue</string>
 </resources>

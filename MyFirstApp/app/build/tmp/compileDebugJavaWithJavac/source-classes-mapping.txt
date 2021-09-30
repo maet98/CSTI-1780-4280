@@ -1,0 +1,2 @@
+com/pucmm/myfirstapp/BuildConfig.java
+ com.pucmm.myfirstapp.BuildConfig
