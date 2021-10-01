@@ -31,14 +31,35 @@ class MainActivity : AppCompatActivity() {
         )
 
         for ( i in permissionList.indices) {
-            if (ActivityCompat.checkSelfPermission(this, permissionList[i]) == PackageManager.PERMISSION_GRANTED) {
-                switchs[i].isChecked = true;
-            }
+            switchs[i].isChecked = ActivityCompat.checkSelfPermission(this, permissionList[i]) == PackageManager.PERMISSION_GRANTED
             if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
                 switchs[i].setTextColor(this.getColor(R.color.white))
             };
         }
         val continueButton = findViewById<Button>(R.id.continueButton);
+    }
+
+    override fun onResume() {
+        super.onResume()
+        var permissionList = mutableListOf<String>(
+                Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                Manifest.permission.ACCESS_COARSE_LOCATION,
+                Manifest.permission.CAMERA,
+                Manifest.permission.CALL_PHONE,
+                Manifest.permission.READ_CONTACTS
+        );
+        var switchs = mutableListOf<Switch>(
+                findViewById<Switch>(R.id.storageSwitch),
+                findViewById<Switch>(R.id.locationSwitch),
+                findViewById<Switch>(R.id.cameraSwitch),
+                findViewById<Switch>(R.id.phoneSwitch),
+                findViewById<Switch>(R.id.contactSwitch)
+        )
+
+        for ( i in permissionList.indices) {
+            switchs[i].isChecked = ActivityCompat.checkSelfPermission(this, permissionList[i]) == PackageManager.PERMISSION_GRANTED
+        }
+
     }
 
 
@@ -69,11 +90,13 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    public fun quit(view: View) {
+        finishAndRemoveTask();
+    }
+
 
     public fun nextPage(view: View) {
         requestPermission()
-        val intent = Intent(this, TestPermission::class.java)
-        startActivityForResult(intent, 0);
     }
 
     public fun checkPermission(view: View) {
@@ -123,6 +146,12 @@ class MainActivity : AppCompatActivity() {
 
             }
         }
+    }
+
+    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        val intent = Intent(this, TestPermission::class.java)
+        startActivityForResult(intent, 0);
     }
 
 }

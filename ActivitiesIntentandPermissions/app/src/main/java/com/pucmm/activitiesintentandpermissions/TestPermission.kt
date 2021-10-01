@@ -22,16 +22,21 @@ class TestPermission : AppCompatActivity() {
     public fun launchGoogleMaps(view: View) {
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
 
-            // Create a Uri from an intent string. Use the result to create an Intent.
-            val gmmIntentUri = Uri.parse("geo:37.7749,-122.4194")
+            var mySnackbar = Snackbar.make(view, "Permission already granted.", Snackbar.LENGTH_SHORT);
+            mySnackbar.setAction("Open", View.OnClickListener {
+                // Create a Uri from an intent string. Use the result to create an Intent.
+                val gmmIntentUri = Uri.parse("geo:37.7749,-122.4194")
 
-            // Create an Intent from gmmIntentUri. Set the action to ACTION_VIEW
-            val mapIntent = Intent(Intent.ACTION_VIEW, gmmIntentUri)
-            // Make the Intent explicit by setting the Google Maps package
-            mapIntent.setPackage("com.google.android.apps.maps")
+                // Create an Intent from gmmIntentUri. Set the action to ACTION_VIEW
+                val mapIntent = Intent(Intent.ACTION_VIEW, gmmIntentUri)
+                // Make the Intent explicit by setting the Google Maps package
+                mapIntent.setPackage("com.google.android.apps.maps")
 
-            // Attempt to start an activity that can handle the Intent
-            startActivity(mapIntent)
+                // Attempt to start an activity that can handle the Intent
+                startActivity(mapIntent)
+            }
+            )
+            mySnackbar.show()
         } else {
             var mySnackbar = Snackbar.make(view, "You need to grant location permission first", Snackbar.LENGTH_SHORT);
             mySnackbar.show()
@@ -40,10 +45,15 @@ class TestPermission : AppCompatActivity() {
 
     public fun launchContacts(view: View) {
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.READ_CONTACTS) == PackageManager.PERMISSION_GRANTED) {
-            val intent = Intent(Intent.ACTION_PICK).apply {
-                type = ContactsContract.Contacts.CONTENT_TYPE
+            var mySnackbar = Snackbar.make(view, "Permission already granted.", Snackbar.LENGTH_SHORT);
+            mySnackbar.setAction("Open", View.OnClickListener {
+                val intent = Intent(Intent.ACTION_PICK).apply {
+                    type = ContactsContract.Contacts.CONTENT_TYPE
+                }
+                startActivity(intent)
             }
-            startActivity(intent)
+            )
+            mySnackbar.show()
         } else {
             var mySnackbar = Snackbar.make(view, "You need to grant contacts permission first", Snackbar.LENGTH_SHORT);
             mySnackbar.show()
@@ -53,8 +63,13 @@ class TestPermission : AppCompatActivity() {
 
     public fun launchPhone(view: View) {
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE) == PackageManager.PERMISSION_GRANTED) {
-            val intent = Intent(Intent.ACTION_CALL, Uri.parse("tel:" + "829-960-2769"))
-            startActivity(intent)
+            var mySnackbar = Snackbar.make(view, "Permission already granted.", Snackbar.LENGTH_SHORT);
+            mySnackbar.setAction("Open", View.OnClickListener {
+                val intent = Intent(Intent.ACTION_CALL, Uri.parse("tel:" + "829-960-2769"))
+                startActivity(intent)
+            }
+            )
+            mySnackbar.show()
         } else {
             var mySnackbar = Snackbar.make(view, "You need to grant phone permission first", Snackbar.LENGTH_SHORT);
             mySnackbar.show()
@@ -64,10 +79,15 @@ class TestPermission : AppCompatActivity() {
 
     public fun launchStorage(view: View) {
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
-            val intent = Intent(Intent.ACTION_GET_CONTENT).apply {
-                type = "image/*"
+            var mySnackbar = Snackbar.make(view, "Permission already granted.", Snackbar.LENGTH_SHORT);
+            mySnackbar.setAction("Open", View.OnClickListener {
+                val intent = Intent(Intent.ACTION_GET_CONTENT).apply {
+                    type = "image/*"
+                }
+                startActivity(intent)
             }
-            startActivity(intent)
+            )
+            mySnackbar.show()
         } else {
             var mySnackbar = Snackbar.make(view, "You need to grant storage permission first", Snackbar.LENGTH_SHORT);
             mySnackbar.show()
@@ -76,12 +96,18 @@ class TestPermission : AppCompatActivity() {
 
     public fun launchCamera(view: View) {
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED) {
-            val camera_intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-            val pic_id = 123;
-            startActivityForResult(camera_intent, pic_id);
+            var mySnackbar = Snackbar.make(view, "Permission already granted.", Snackbar.LENGTH_SHORT);
+            mySnackbar.setAction("Open", View.OnClickListener {
+                val camera_intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                val pic_id = 123;
+                startActivityForResult(camera_intent, pic_id);
+            }
+            )
+            mySnackbar.show()
         } else {
             var mySnackbar = Snackbar.make(view, "You need to grant camera permission first", Snackbar.LENGTH_SHORT);
             mySnackbar.show()
         }
     }
 }
+
